@@ -10,6 +10,7 @@
 		0DC5A225A3DFC8E38D3A6F0D /* Pods_ccs_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3C1E84CEE2D3F8E2FBBF50 /* Pods_ccs_events.framework */; };
 		AF30CBFC1D9CC7320090A579 /* eventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */; };
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
+		AF8D5B441DC52E08002E3DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D5B431DC52E08002E3DAC /* Constants.swift */; };
 		AFA36BDF1D9B845400E1716B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */; };
 		AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */; };
 		AFD613791D9F5D0B00DD6F7A /* EventImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD613771D9F5D0B00DD6F7A /* EventImageTableViewCell.swift */; };
@@ -33,6 +34,7 @@
 		AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventCellTableViewCell.swift; sourceTree = "<group>"; };
 		AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCellTableViewCell.xib; sourceTree = "<group>"; };
 		AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ccs_events.entitlements; sourceTree = "<group>"; };
+		AF8D5B431DC52E08002E3DAC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		AFD613771D9F5D0B00DD6F7A /* EventImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,16 +96,26 @@
 		AF8664EC1D9F420C008C7201 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				AF8D5B451DC52E1B002E3DAC /* Controllers */,
 				AFD613761D9F5CE400DD6F7A /* Event Detail Rows */,
-				AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */,
-				AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */,
 			);
 			name = Events;
+			sourceTree = "<group>";
+		};
+		AF8D5B451DC52E1B002E3DAC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFF07D881D90CA5B00218622 /* EventViewController.swift */,
+				AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		AFD613761D9F5CE400DD6F7A /* Event Detail Rows */ = {
 			isa = PBXGroup;
 			children = (
+				AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */,
+				AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */,
 				AFD613771D9F5D0B00DD6F7A /* EventImageTableViewCell.swift */,
 				AFD613781D9F5D0B00DD6F7A /* EventImageTableViewCell.xib */,
 				AFD6137B1D9F5DB700DD6F7A /* EventDateTableViewCell.swift */,
@@ -138,8 +150,7 @@
 				AF30CBF91D9CC6D90090A579 /* Notification */,
 				AFF07D841D90CA5B00218622 /* AppDelegate.swift */,
 				AFF07D861D90CA5B00218622 /* FirstViewController.swift */,
-				AFF07D881D90CA5B00218622 /* EventViewController.swift */,
-				AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */,
+				AF8D5B431DC52E08002E3DAC /* Constants.swift */,
 				AF8664EC1D9F420C008C7201 /* Events */,
 				AFF07D8A1D90CA5B00218622 /* Main.storyboard */,
 				AFF07D8D1D90CA5C00218622 /* Assets.xcassets */,
@@ -292,6 +303,7 @@
 				AFFDED0F1DA5F32D00DD18BB /* EventTextTableViewCell.swift in Sources */,
 				AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */,
 				AFF07D891D90CA5B00218622 /* EventViewController.swift in Sources */,
+				AF8D5B441DC52E08002E3DAC /* Constants.swift in Sources */,
 				AFF07D851D90CA5B00218622 /* AppDelegate.swift in Sources */,
 				AFD613791D9F5D0B00DD6F7A /* EventImageTableViewCell.swift in Sources */,
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,

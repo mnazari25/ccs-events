@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SDWebImage
 
 let eventImageReuse = "eventImageReuse"
 let eventDateReuse = "eventDateReuse"
@@ -21,6 +22,10 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if passedEvent == nil {
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
 
         // Do any additional setup after loading the view.
         self.title = passedEvent.eventName
@@ -43,9 +48,7 @@ extension EventDetailViewController : UITableViewDataSource, UITableViewDelegate
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: eventImageReuse) as? EventImageTableViewCell {
-                
-                cell.eventImage.frame = AVMakeRect(aspectRatio: passedEvent.eventImage.size, insideRect: cell.eventImage.frame)
-                cell.eventImage.image = passedEvent.eventImage
+                cell.eventImage.sd_setImage(with: URL(string: passedEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
                 return cell
             }
         case 1:

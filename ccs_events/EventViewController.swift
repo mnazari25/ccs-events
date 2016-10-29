@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import SDWebImage
 
 let toEventDetail = "toEventDetail"
 
 class EventViewController: UIViewController {
 
+    var ref: FIRDatabaseReference!
+    
     @IBOutlet weak var eventTableView: UITableView!
     
     var savedEvents : [Event] = []
@@ -20,11 +25,9 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        savedEvents.append(Event(eventName: "Obra Escolar", eventDate: "30/10/2016", eventLocation: "Auditorio Principal", eventTime: "14:00-18:00", eventDescription: "CCS será la presentación de la \"Pesadilla antes de Navidad\". La clase de cuarto grado estará poniendo un gran espectáculo! Por favor asegúrese de llegar temprano como asientos será \"primero que llega\". Salir y mostrar su apoyo!", eventImage: #imageLiteral(resourceName: "NightmareBeforeChristmasWallpaper1024")))
+        ref = FIRDatabase.database().reference(withPath: "ccs/events")
         
-        savedEvents.append(Event(eventName: "Junta General de Padres", eventDate: "15/12/2016", eventLocation: "Auditorio Principal", eventTime: "14:00-18:00", eventDescription: "CCS tendrá una reunión para discutir los planes del año próximo. Este será un evento opcional para los padres, pero, es muy recomendable que asista. Esta reunión ayudará a prepararse mejor para el próximo año escolar de su hijo.", eventImage: #imageLiteral(resourceName: "IMG_1122")))
-        
-        savedEvents.append(Event(eventName: "¡Fuegos artificiales!", eventDate: "15/12/2016", eventLocation: "Parque Central", eventTime: "18:00-20:00", eventDescription: "Vamos a tener un fuego artificial asombrosa espectacular. Por favor, siéntase libre de traer a toda su familia a Central Park durante el tiempo de su vida!", eventImage: #imageLiteral(resourceName: "sporting-event-limo-service----")))
+        readAndListenForEvents()
         
         eventTableView.register(UINib.init(nibName: "eventCellTableViewCell", bundle: nil), forCellReuseIdentifier: "cellId")
         eventTableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -49,7 +52,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         let elEvent = savedEvents[indexPath.row]
         
         cell.eventTitle.text = elEvent.eventName
-        cell.eventImage.image = elEvent.eventImage
+        cell.eventImage.sd_setImage(with: URL(string: elEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
         cell.eventDescription.text = elEvent.eventDescription
         
         return cell
@@ -69,5 +72,29 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEvent = savedEvents[indexPath.row]
         performSegue(withIdentifier: toEventDetail, sender: self)
+    }
+}
+
+// MARK: - Firebase
+extension EventViewController {
+    func readAndListenForEvents() {
+        ref.queryOrderedByKey().observe(.value) { (snap : FIRDataSnapshot) in
+            
+            // Clear old list to make room for new events
+            self.savedEvents = []
+            
+            if snap.hasChildren() {
+                // Loop through all event children
+                for child in snap.children {
+                    // Create new event object using Data snapshot
+                    let newEvent = Event(snapshot: child as! FIRDataSnapshot)
+                    // Add new event to saved event list
+                    self.savedEvents.append(newEvent)
+                }
+                self.savedEvents = self.savedEvents.reversed()
+            }
+            // Reload table
+            self.eventTableView.reloadData()
+        }
     }
 }
