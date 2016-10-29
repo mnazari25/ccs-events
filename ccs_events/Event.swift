@@ -19,6 +19,7 @@ class Event : NSObject {
     var eventDescription : String = ""
     var eventImage : String = ""
     var adminNotes : String = ""
+    var savedEventID : String?
     
     init(eventName : String, eventDate : String,
          eventLocation : String, eventTime : String,

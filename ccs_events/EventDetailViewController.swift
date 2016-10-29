@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import SDWebImage
+import EventKit
 
 let eventImageReuse = "eventImageReuse"
 let eventDateReuse = "eventDateReuse"
@@ -37,6 +38,71 @@ class EventDetailViewController: UIViewController {
         detailTable.register(UINib.init(nibName: "EventDateTableViewCell", bundle: nil), forCellReuseIdentifier: eventDateReuse)
         detailTable.register(UINib.init(nibName: "EventTextTableViewCell", bundle: nil), forCellReuseIdentifier: eventTextReuse)
         detailTable.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    @IBAction func addEventToCalendario(_ sender: UIButton) {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        guard let date = formatter.date(from: "20161029") else { return }
+    
+        addEventToCalendar(title: passedEvent.eventName, description: passedEvent.eventDescription, startDate: date, endDate: date, completion: { (success, error) in
+            
+            if success {
+                print("successfully saved events")
+                let alert = UIAlertController.alert(withTitle: "Evento salvó al Calendario", message: "El evento se ha guardado en el calendario.", actions: [UIAlertAction.init(title: "De acuerdo", style: .default, handler: nil)], alertType: .alert)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            if error != nil {
+                print("there was an error saving the event")
+                let alert = UIAlertController.alert(withTitle: "Error", message: "Ahorro de evento para el calendario de error. Por favor, inténtelo de nuevo.", actions: [UIAlertAction.init(title: "De acuerdo", style: .default, handler: nil)], alertType: .alert)
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
+    }
+    
+    func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        let eventStore = EKEventStore()
+
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+  
+                var event : EKEvent?
+                if let savedEventID = self.passedEvent.savedEventID {
+                    event = eventStore.event(withIdentifier: savedEventID)
+                }
+                
+                if event == nil {
+                    event = EKEvent(eventStore: eventStore)
+                } else {
+                    print("already saved event")
+                    let alert = UIAlertController.alert(withTitle: "Ya Guardado", message: "Este evento ya se guarda en el calendario.", actions: [UIAlertAction.init(title: "De acuerdo", style: .default, handler: nil)], alertType: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    completion?(false, nil)
+                    return
+                }
+                
+                event!.title = title
+                event!.startDate = startDate
+                event!.endDate = endDate
+                event!.notes = description
+                event!.calendar = eventStore.defaultCalendarForNewEvents
+                
+                do {
+                    try eventStore.save(event!, span: .thisEvent)
+                    print(event?.eventIdentifier)
+                    self.passedEvent.savedEventID = event?.eventIdentifier
+                } catch let e as NSError {
+                    completion?(false, e)
+                    return
+                }
+                completion?(true, nil)
+            } else {
+                completion?(false, error as NSError?)
+            }
+        })
     }
 }
 
