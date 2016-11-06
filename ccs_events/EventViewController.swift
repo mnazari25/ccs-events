@@ -25,6 +25,8 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isTranslucent = false
+        
         ref = FIRDatabase.database().reference(withPath: "ccs/events")
         
         readAndListenForEvents()

@@ -24,6 +24,8 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isTranslucent = false
+        
         if passedEvent == nil {
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
@@ -92,7 +94,6 @@ class EventDetailViewController: UIViewController {
                 
                 do {
                     try eventStore.save(event!, span: .thisEvent)
-                    print(event?.eventIdentifier)
                     self.passedEvent.savedEventID = event?.eventIdentifier
                 } catch let e as NSError {
                     completion?(false, e)
@@ -120,9 +121,22 @@ extension EventDetailViewController : UITableViewDataSource, UITableViewDelegate
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: eventDateReuse) as? EventDateTableViewCell {
                 
-                cell.dateLabel.text = passedEvent.eventDate
+                let timeInterval : TimeInterval = TimeInterval(passedEvent.eventDate)
+                let date = Date(timeIntervalSince1970: timeInterval)
+                let dayTimePeriodFormatter = DateFormatter()
+                dayTimePeriodFormatter.dateFormat = "hh:mm a"
+                let timeString = dayTimePeriodFormatter.string(from: date)
+                dayTimePeriodFormatter.dateFormat = "dd-MM-YYYY"
+                let dateString = dayTimePeriodFormatter.string(from: date)
+                
+                var daTimeZone = ""
+                if let timeZone = NSTimeZone.local.abbreviation() {
+                    daTimeZone = timeZone
+                }
+                
+                cell.dateLabel.text = dateString
                 cell.locationLabel.text = passedEvent.eventLocation
-                cell.timeLabel.text = passedEvent.eventTime
+                cell.timeLabel.text = "\(timeString) \(daTimeZone)"
                 return cell
             }
         case 2:

@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
+        NotificationCenter.default.addObserver(self,
+                                                       selector: #selector(tokenRefreshNotification(notification:)),
+                                                       name: NSNotification.Name.firInstanceIDTokenRefresh,
+                                                       object: nil)
+        
         if #available(iOS 10.0, *) {
             let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions,
@@ -39,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
 
-        
         return true
     }
 
@@ -66,6 +70,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(userInfo)
+    }
+    
+    
+    // NOTE: Need to use this when swizzling is disabled
+    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
+        
+    }
+    
+    func tokenRefreshNotification(notification: NSNotification) {
+        // NOTE: It can be nil here
+        let refreshedToken = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(refreshedToken)")
+        
+        connectToFcm()
+    }
+    
+    func connectToFcm() {
+        FIRMessaging.messaging().connect { (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
+        }
+    }
+    
+    public func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         print(userInfo)
     }
 

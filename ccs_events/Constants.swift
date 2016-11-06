@@ -23,6 +23,11 @@ class Constants {
     static let eventDescriptionKey = "eventDescription"
     static let eventTimeKey = "eventTime"
     static let eventImageKey = "eventImage"
+    
+    static let facebookSocialLink = "fb://profile/111211452282555"
+    static let facebookSocialWebLink = "https://www.facebook.com/CCSampedrano/"
+    static let twitterSocialLink = "twitter://user?screen_name=CCSsps"
+    static let twitterSocialWebLink = "https://twitter.com/CCSsps"
 }
 
 extension UIAlertController {
