@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Agrume (3.0.2)
   - Firebase/Auth (3.7.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.5)
@@ -71,6 +72,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Agrume
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -81,6 +83,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Agrume: 5698c55f02bb9bd60b6a32fea6ac0e8057ccb927
   Firebase: 3875e140d77c7572c6d4852faf94144ffcdb0704
   FirebaseAnalytics: 02d0aed8c6246a9c8683ac3e9825c67ceb657bde
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -97,6 +100,6 @@ SPEC CHECKSUMS:
   ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 666a3b6339ecb6553510a6ae808e45db599349fd
+PODFILE CHECKSUM: d0e7c54291ebf285971e7289a62674f751db7a93
 
 COCOAPODS: 1.1.0.beta.2

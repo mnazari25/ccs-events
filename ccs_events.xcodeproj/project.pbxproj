@@ -13,6 +13,8 @@
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
 		AF42CAE31DCE8C5200A4FBD3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42CAE21DCE8C5200A4FBD3 /* AVFoundation.framework */; };
 		AF42CAE51DCEFEFD00A4FBD3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42CAE41DCEFEFD00A4FBD3 /* ContactViewController.swift */; };
+		AF43984B1DCF209600511298 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43984A1DCF209600511298 /* GalleryViewController.swift */; };
+		AF43984E1DCFB50500511298 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43984D1DCFB50500511298 /* GalleryCollectionViewCell.swift */; };
 		AF8D5B441DC52E08002E3DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D5B431DC52E08002E3DAC /* Constants.swift */; };
 		AFA36BDF1D9B845400E1716B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */; };
 		AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */; };
@@ -40,6 +42,8 @@
 		AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ccs_events.entitlements; sourceTree = "<group>"; };
 		AF42CAE21DCE8C5200A4FBD3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AF42CAE41DCEFEFD00A4FBD3 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		AF43984A1DCF209600511298 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		AF43984D1DCFB50500511298 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF8D5B431DC52E08002E3DAC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFD613741D9F4F2D00DD6F7A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 			name = Contact;
 			sourceTree = "<group>";
 		};
+		AF43984C1DCF20E400511298 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				AF43984A1DCF209600511298 /* GalleryViewController.swift */,
+				AF43984D1DCFB50500511298 /* GalleryCollectionViewCell.swift */,
+			);
+			name = Gallery;
+			sourceTree = "<group>";
+		};
 		AF8664EC1D9F420C008C7201 /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +178,11 @@
 			isa = PBXGroup;
 			children = (
 				AF0205FC1DCE275600996D20 /* FunAnimations.swift */,
-				AF30CBF91D9CC6D90090A579 /* Notification */,
 				AFF07D841D90CA5B00218622 /* AppDelegate.swift */,
 				AFF07D861D90CA5B00218622 /* FirstViewController.swift */,
 				AF8D5B431DC52E08002E3DAC /* Constants.swift */,
+				AF30CBF91D9CC6D90090A579 /* Notification */,
+				AF43984C1DCF20E400511298 /* Gallery */,
 				AF4398491DCF000700511298 /* Contact */,
 				AF8664EC1D9F420C008C7201 /* Events */,
 				AFF07D8A1D90CA5B00218622 /* Main.storyboard */,
@@ -321,6 +335,8 @@
 				AFFDED0F1DA5F32D00DD18BB /* EventTextTableViewCell.swift in Sources */,
 				AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */,
 				AFF07D891D90CA5B00218622 /* EventViewController.swift in Sources */,
+				AF43984E1DCFB50500511298 /* GalleryCollectionViewCell.swift in Sources */,
+				AF43984B1DCF209600511298 /* GalleryViewController.swift in Sources */,
 				AF42CAE51DCEFEFD00A4FBD3 /* ContactViewController.swift in Sources */,
 				AF8D5B441DC52E08002E3DAC /* Constants.swift in Sources */,
 				AFF07D851D90CA5B00218622 /* AppDelegate.swift in Sources */,

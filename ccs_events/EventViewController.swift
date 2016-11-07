@@ -29,10 +29,20 @@ class EventViewController: UIViewController {
         
         ref = FIRDatabase.database().reference(withPath: "ccs/events")
         
-        readAndListenForEvents()
+        readAndListenForEvents(shouldSaveCount: true)
         
         eventTableView.register(UINib.init(nibName: "eventCellTableViewCell", bundle: nil), forCellReuseIdentifier: "cellId")
         eventTableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.items![1].badgeValue = nil
+        readAndListenForEvents(shouldSaveCount : true)
+        UserDefaults.standard.set(true, forKey: "badgeUpdate")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "badgeUpdate")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +89,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Firebase
 extension EventViewController {
-    func readAndListenForEvents() {
+    func readAndListenForEvents(shouldSaveCount : Bool) {
         ref.queryOrderedByKey().observe(.value) { (snap : FIRDataSnapshot) in
             
             // Clear old list to make room for new events
@@ -95,6 +105,11 @@ extension EventViewController {
                 }
                 self.savedEvents = self.savedEvents.reversed()
             }
+            
+            if shouldSaveCount {
+                UserDefaults.standard.set(self.savedEvents.count, forKey: "eventCount")
+            }
+            
             // Reload table
             self.eventTableView.reloadData()
         }

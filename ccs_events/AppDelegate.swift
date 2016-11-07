@@ -21,11 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-        NotificationCenter.default.addObserver(self,
-                                                       selector: #selector(tokenRefreshNotification(notification:)),
-                                                       name: NSNotification.Name.firInstanceIDTokenRefresh,
-                                                       object: nil)
-        
         if #available(iOS 10.0, *) {
             let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions,
@@ -70,41 +65,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print(userInfo)
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // Print message ID.
+        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        
+        // Print full message.
+        print("%@", userInfo)
     }
     
     
     // NOTE: Need to use this when swizzling is disabled
     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
-        
-    }
-    
-    func tokenRefreshNotification(notification: NSNotification) {
-        // NOTE: It can be nil here
-        let refreshedToken = FIRInstanceID.instanceID().token()
-        print("InstanceID token: \(refreshedToken)")
-        
-        connectToFcm()
-    }
-    
-    func connectToFcm() {
-        FIRMessaging.messaging().connect { (error) in
-            if (error != nil) {
-                print("Unable to connect with FCM. \(error)")
-            } else {
-                print("Connected to FCM.")
-            }
-        }
-    }
-    
-    public func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        print(userInfo)
-    }
-
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        print(remoteMessage.description)
     }
 }
 
@@ -126,7 +101,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 
 extension AppDelegate : FIRMessagingDelegate {
     // Receive data message on iOS 10 devices.
-    func applicationReceivedRemoteMessage(remoteMessage: FIRMessagingRemoteMessage) {
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
         print("%@", remoteMessage.appData)
     }
 }

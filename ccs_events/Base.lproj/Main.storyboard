@@ -176,7 +176,7 @@
         <!--Galeria-->
         <scene sceneID="OJ7-NJ-opu">
             <objects>
-                <viewController id="BZ8-Is-YZ2" sceneMemberID="viewController">
+                <viewController id="BZ8-Is-YZ2" customClass="GalleryViewController" customModule="ccs_events" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E3o-qX-U7o"/>
                         <viewControllerLayoutGuide type="bottom" id="WAn-Ta-KP0"/>
@@ -184,13 +184,62 @@
                     <view key="view" contentMode="scaleToFill" id="rza-AX-8eT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ykh-5b-owC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="86c-js-znd">
+                                    <size key="itemSize" width="140" height="118"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="k6I-6F-c2g" customClass="GalleryCollectionViewCell" customModule="ccs_events" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vI9-m5-ub5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="118"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="vI9-m5-ub5" firstAttribute="centerX" secondItem="k6I-6F-c2g" secondAttribute="centerX" id="HSR-Jd-8Mf"/>
+                                            <constraint firstItem="vI9-m5-ub5" firstAttribute="height" secondItem="k6I-6F-c2g" secondAttribute="height" id="Sx3-WE-sWd"/>
+                                            <constraint firstItem="vI9-m5-ub5" firstAttribute="centerY" secondItem="k6I-6F-c2g" secondAttribute="centerY" id="hGl-g0-9jo"/>
+                                            <constraint firstItem="vI9-m5-ub5" firstAttribute="width" secondItem="k6I-6F-c2g" secondAttribute="width" id="zH7-3F-WZl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="galleryImage" destination="vI9-m5-ub5" id="iSG-e1-hlS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BZ8-Is-YZ2" id="fPb-dZ-Yum"/>
+                                    <outlet property="delegate" destination="BZ8-Is-YZ2" id="Yem-84-oi7"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ykh-5b-owC" firstAttribute="leading" secondItem="rza-AX-8eT" secondAttribute="leading" id="0u3-P2-qjj"/>
+                            <constraint firstAttribute="trailing" secondItem="ykh-5b-owC" secondAttribute="trailing" id="FH7-qx-VtG"/>
+                            <constraint firstItem="ykh-5b-owC" firstAttribute="top" secondItem="rza-AX-8eT" secondAttribute="top" id="m4G-Sk-IhV"/>
+                            <constraint firstAttribute="bottom" secondItem="ykh-5b-owC" secondAttribute="bottom" id="vgx-fY-aqd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Galeria" id="k4e-NS-ohV"/>
+                    <connections>
+                        <outlet property="daCollectionView" destination="ykh-5b-owC" id="44j-GM-XEb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAT-lF-SlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="1084"/>
+            <point key="canvasLocation" x="1688.8" y="1083.5082458770617"/>
         </scene>
         <!--Información-->
         <scene sceneID="QiV-yF-mrV">
@@ -217,7 +266,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="72j-hx-uBX">
-                                                <rect key="frame" x="8" y="447" width="359" height="168"/>
+                                                <rect key="frame" x="8" y="448" width="359" height="168"/>
                                                 <string key="text">Somos una organización que contribuye al desarrollo nacional a través de la difusión de la cultura y educación, creando condiciones que faciliten el acceso de la comunidad y la óptima utilización de los recursos tecnológicos, con un equipo humano consolidado en principios que generen credibilidad y confianza en la sociedad.
 
 </string>
@@ -225,14 +274,14 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mision" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIB-bw-twr">
-                                                <rect key="frame" x="8" y="419" width="359" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misión" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIB-bw-twr">
+                                                <rect key="frame" x="8" y="419" width="359" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="B9m-Tq-9mO">
-                                                <rect key="frame" x="8" y="644" width="359" height="93.5"/>
+                                                <rect key="frame" x="8" y="645" width="359" height="93.5"/>
                                                 <string key="text">Ser el Centro Cultural Binacional líder en Centro América, ofreciendo a la comunidad servicios culturales y educativos de excelencia.
 
 </string>
@@ -240,8 +289,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vision" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vL-ny-cvk">
-                                                <rect key="frame" x="8" y="615" width="359" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visión" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vL-ny-cvk">
+                                                <rect key="frame" x="8" y="616" width="359" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -250,13 +299,13 @@
                                                 <rect key="frame" x="0.0" y="144" width="375" height="267"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-Uw-nR1">
-                                                <rect key="frame" x="8" y="737.5" width="359" height="21"/>
+                                                <rect key="frame" x="8" y="738.5" width="359" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mTF-QL-1Fz">
-                                                <rect key="frame" x="7.5" y="766.5" width="359" height="287.5"/>
+                                                <rect key="frame" x="7.5" y="767.5" width="359" height="286.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Correos Electrónicos Generales:
 asisteacademico@centrocultural-sps.com
