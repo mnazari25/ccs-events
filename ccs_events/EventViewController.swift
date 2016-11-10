@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import SDWebImage
+import Agrume
 
 let toEventDetail = "toEventDetail"
 
@@ -29,7 +30,7 @@ class EventViewController: UIViewController {
         
         ref = FIRDatabase.database().reference(withPath: "ccs/events")
         
-        readAndListenForEvents(shouldSaveCount: true)
+        readAndListenForEvents()
         
         eventTableView.register(UINib.init(nibName: "eventCellTableViewCell", bundle: nil), forCellReuseIdentifier: "cellId")
         eventTableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -37,7 +38,7 @@ class EventViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.items![1].badgeValue = nil
-        readAndListenForEvents(shouldSaveCount : true)
+        readAndListenForEvents()
         UserDefaults.standard.set(true, forKey: "badgeUpdate")
     }
     
@@ -64,6 +65,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         let elEvent = savedEvents[indexPath.row]
         
         cell.eventTitle.text = elEvent.eventName
+        
         cell.eventImage.sd_setImage(with: URL(string: elEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
         cell.eventDescription.text = elEvent.eventDescription
         
@@ -89,7 +91,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Firebase
 extension EventViewController {
-    func readAndListenForEvents(shouldSaveCount : Bool) {
+    func readAndListenForEvents() {
         ref.queryOrderedByKey().observe(.value) { (snap : FIRDataSnapshot) in
             
             // Clear old list to make room for new events
@@ -105,8 +107,9 @@ extension EventViewController {
                 }
                 self.savedEvents = self.savedEvents.reversed()
             }
+            let isEventFeedVisible = UserDefaults.standard.bool(forKey: "badgeUpdate")
             
-            if shouldSaveCount {
+            if isEventFeedVisible {
                 UserDefaults.standard.set(self.savedEvents.count, forKey: "eventCount")
             }
             

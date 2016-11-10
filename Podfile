@@ -13,7 +13,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 
 pod 'ImagePicker'
-pod 'SDWebImage', '~>3.8'
+pod 'SDWebImage', '~> 3.8'
 pod 'Agrume'
 
 end

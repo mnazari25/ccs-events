@@ -23,6 +23,8 @@ class Constants {
     static let eventDescriptionKey = "eventDescription"
     static let eventTimeKey = "eventTime"
     static let eventImageKey = "eventImage"
+    
+    static let cachedEventKey = "cachedEvents";
         
     //TODO: Add instagram links
     static let facebookSocialLink = "fb://profile/111211452282555"

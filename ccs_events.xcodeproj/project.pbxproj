@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DC5A225A3DFC8E38D3A6F0D /* Pods_ccs_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3C1E84CEE2D3F8E2FBBF50 /* Pods_ccs_events.framework */; };
 		AF0205FD1DCE275600996D20 /* FunAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0205FC1DCE275600996D20 /* FunAnimations.swift */; };
+		AF176CB41DD4388700938CF9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF176CB31DD4388700938CF9 /* Helpers.swift */; };
 		AF30CBFC1D9CC7320090A579 /* eventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */; };
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
 		AF42CAE31DCE8C5200A4FBD3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42CAE21DCE8C5200A4FBD3 /* AVFoundation.framework */; };
@@ -37,6 +38,7 @@
 		41DF16273B6053AA30A90718 /* Pods-ccs_events.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.release.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.release.xcconfig"; sourceTree = "<group>"; };
 		8C990B584289F3D305DB937A /* Pods-ccs_events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.debug.xcconfig"; sourceTree = "<group>"; };
 		AF0205FC1DCE275600996D20 /* FunAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunAnimations.swift; sourceTree = "<group>"; };
+		AF176CB31DD4388700938CF9 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventCellTableViewCell.swift; sourceTree = "<group>"; };
 		AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCellTableViewCell.xib; sourceTree = "<group>"; };
 		AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ccs_events.entitlements; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				AFF07D8D1D90CA5C00218622 /* Assets.xcassets */,
 				AFF07D8F1D90CA5C00218622 /* LaunchScreen.storyboard */,
 				AFF07D921D90CA5C00218622 /* Info.plist */,
+				AF176CB31DD4388700938CF9 /* Helpers.swift */,
 			);
 			path = ccs_events;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				AFD613791D9F5D0B00DD6F7A /* EventImageTableViewCell.swift in Sources */,
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,
 				AFF07D871D90CA5B00218622 /* FirstViewController.swift in Sources */,
+				AF176CB41DD4388700938CF9 /* Helpers.swift in Sources */,
 				AF0205FD1DCE275600996D20 /* FunAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +479,7 @@
 				INFOPLIST_FILE = ccs_events/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -492,7 +496,7 @@
 				INFOPLIST_FILE = ccs_events/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
