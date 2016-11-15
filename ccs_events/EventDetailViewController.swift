@@ -44,9 +44,8 @@ class EventDetailViewController: UIViewController {
     
     @IBAction func addEventToCalendario(_ sender: UIButton) {
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        guard let date = formatter.date(from: "20161029") else { return }
+        let timeInterval : TimeInterval = TimeInterval(passedEvent.eventDate)
+        let date = Date(timeIntervalSince1970: timeInterval)
     
         addEventToCalendar(title: passedEvent.eventName, description: passedEvent.eventDescription, startDate: date, endDate: date, completion: { (success, error) in
             
@@ -126,7 +125,9 @@ extension EventDetailViewController : UITableViewDataSource, UITableViewDelegate
                 let dayTimePeriodFormatter = DateFormatter()
                 dayTimePeriodFormatter.dateFormat = "hh:mm a"
                 let timeString = dayTimePeriodFormatter.string(from: date)
-                dayTimePeriodFormatter.dateFormat = "dd-MM-YYYY"
+                dayTimePeriodFormatter.dateStyle = .short
+                dayTimePeriodFormatter.timeStyle = .none
+                dayTimePeriodFormatter.locale = Locale.init(identifier: "es_HN")
                 let dateString = dayTimePeriodFormatter.string(from: date)
                 
                 var daTimeZone = ""

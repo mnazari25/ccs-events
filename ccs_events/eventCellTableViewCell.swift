@@ -13,6 +13,7 @@ class eventCellTableViewCell: UITableViewCell {
     // Outlets
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var eventDate: UILabel!
     @IBOutlet weak var eventDescription: UILabel!
         
     override func awakeFromNib() {

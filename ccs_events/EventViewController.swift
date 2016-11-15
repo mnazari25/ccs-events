@@ -67,6 +67,16 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         cell.eventImage.sd_setImage(with: URL(string: elEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
         cell.eventDescription.text = elEvent.eventDescription
         
+        let timeInterval : TimeInterval = TimeInterval(elEvent.eventDate)
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateStyle = .short
+        dayTimePeriodFormatter.timeStyle = .none
+        dayTimePeriodFormatter.locale = Locale.init(identifier: "es_HN")
+        let dateString = dayTimePeriodFormatter.string(from: date)
+        
+        cell.eventDate.text = dateString
+        
         return cell
         
     }
