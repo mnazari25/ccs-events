@@ -18,6 +18,7 @@ let eventTextReuse = "eventTextReuse"
 class EventDetailViewController: UIViewController {
     
     var passedEvent : Event!
+    var selectedImage : UIImage?
     
     @IBOutlet weak var detailTable: UITableView!
     
@@ -114,7 +115,13 @@ extension EventDetailViewController : UITableViewDataSource, UITableViewDelegate
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: eventImageReuse) as? EventImageTableViewCell {
-                cell.eventImage.sd_setImage(with: URL(string: passedEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
+                
+                if let imageToShow = selectedImage {
+                    cell.eventImage.image = imageToShow
+                } else {
+                    cell.eventImage.image = #imageLiteral(resourceName: "events-placeholder")
+                }
+                
                 return cell
             }
         case 1:

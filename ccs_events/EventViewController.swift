@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import SDWebImage
 
 let toEventDetail = "toEventDetail"
 
@@ -21,6 +20,7 @@ class EventViewController: UIViewController {
     
     var savedEvents : [Event] = []
     var selectedEvent : Event!
+    var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,7 @@ class EventViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let eventDetailVC = segue.destination as? EventDetailViewController {
             eventDetailVC.passedEvent = selectedEvent
+            eventDetailVC.selectedImage = selectedImage
         }
     }
 }
@@ -64,7 +65,9 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         let elEvent = savedEvents[indexPath.row]
         
         cell.eventTitle.text = elEvent.eventName
-        cell.eventImage.sd_setImage(with: URL(string: elEvent.eventImage), placeholderImage: #imageLiteral(resourceName: "events-placeholder"))
+        
+        getImageFromStorageRef(title: elEvent.eventImage, imageView: cell.eventImage)
+        
         cell.eventDescription.text = elEvent.eventDescription
         
         let timeInterval : TimeInterval = TimeInterval(elEvent.eventDate)
@@ -93,6 +96,11 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEvent = savedEvents[indexPath.row]
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? eventCellTableViewCell {
+            selectedImage = cell.eventImage.image
+        }
+        
         performSegue(withIdentifier: toEventDetail, sender: self)
     }
 }
@@ -118,6 +126,12 @@ extension EventViewController {
             
             if shouldSaveCount {
                 UserDefaults.standard.set(self.savedEvents.count, forKey: "eventCount")
+            }
+            
+            if self.savedEvents.isEmpty {
+                self.eventTableView.isHidden = true
+            } else {
+                self.eventTableView.isHidden = false
             }
             
             // Reload table

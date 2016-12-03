@@ -21,6 +21,8 @@ class FirstViewController: UIViewController {
         ref = FIRDatabase.database().reference(withPath: "MyNetwork/event_count")
         FIRMessaging.messaging().subscribe(toTopic: "/topics/event")
         
+        UserDefaults.standard.set(false, forKey: "badgeUpdate")
+        
         ref.observe(.value) { (snap : FIRDataSnapshot) in
             guard let eventCount = snap.value as? Int else {
                 return

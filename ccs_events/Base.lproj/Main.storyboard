@@ -92,8 +92,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay eventos para mostrar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrF-Q0-OCm">
+                                <rect key="frame" x="79" y="323" width="217.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPq-iA-V7A">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -105,9 +111,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FPq-iA-V7A" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="3Ae-s3-yMN"/>
+                            <constraint firstItem="ZrF-Q0-OCm" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="B6l-Zn-OGb"/>
+                            <constraint firstItem="FPq-iA-V7A" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="DMb-Oi-Y4y"/>
                             <constraint firstItem="FPq-iA-V7A" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="JCe-el-yK8"/>
-                            <constraint firstItem="FPq-iA-V7A" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="dOq-6x-hBf"/>
-                            <constraint firstItem="FPq-iA-V7A" firstAttribute="height" secondItem="QS5-Rx-YEW" secondAttribute="height" id="isN-QT-OAe"/>
+                            <constraint firstItem="ZrF-Q0-OCm" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="OUT-Hc-erO"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="FPq-iA-V7A" secondAttribute="bottom" id="OhK-i4-xdd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Boletín" id="Pda-hN-t4S"/>

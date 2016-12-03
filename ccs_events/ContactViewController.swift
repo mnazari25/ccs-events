@@ -20,6 +20,10 @@ class ContactViewController: UIViewController {
         daScrollView.contentSize.height = 1251
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "badgeUpdate")
+    }
+    
     @IBAction func socialLinkTapped(_ sender: UIButton) {
         var urlString = ""
         var secondaryString = ""

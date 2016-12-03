@@ -28,6 +28,7 @@
 		AFF07D8C1D90CA5B00218622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF07D8A1D90CA5B00218622 /* Main.storyboard */; };
 		AFF07D8E1D90CA5C00218622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFF07D8D1D90CA5C00218622 /* Assets.xcassets */; };
 		AFF07D911D90CA5C00218622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF07D8F1D90CA5C00218622 /* LaunchScreen.storyboard */; };
+		AFF572691DDC11A000FD64EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF572681DDC11A000FD64EC /* Helpers.swift */; };
 		AFFDED0F1DA5F32D00DD18BB /* EventTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFDED0D1DA5F32D00DD18BB /* EventTextTableViewCell.swift */; };
 		AFFDED101DA5F32D00DD18BB /* EventTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFFDED0E1DA5F32D00DD18BB /* EventTextTableViewCell.xib */; };
 		AFFDED121DA5FCEC00DD18BB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFDED111DA5FCEC00DD18BB /* Event.swift */; };
@@ -59,6 +60,7 @@
 		AFF07D8D1D90CA5C00218622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFF07D901D90CA5C00218622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFF07D921D90CA5C00218622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF572681DDC11A000FD64EC /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AFFDED0D1DA5F32D00DD18BB /* EventTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTextTableViewCell.swift; sourceTree = "<group>"; };
 		AFFDED0E1DA5F32D00DD18BB /* EventTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTextTableViewCell.xib; sourceTree = "<group>"; };
 		AFFDED111DA5FCEC00DD18BB /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				AFF07D841D90CA5B00218622 /* AppDelegate.swift */,
 				AFF07D861D90CA5B00218622 /* FirstViewController.swift */,
 				AF8D5B431DC52E08002E3DAC /* Constants.swift */,
+				AFF572681DDC11A000FD64EC /* Helpers.swift */,
 				AF30CBF91D9CC6D90090A579 /* Notification */,
 				AF43984C1DCF20E400511298 /* Gallery */,
 				AF4398491DCF000700511298 /* Contact */,
@@ -343,6 +346,7 @@
 				AFD613791D9F5D0B00DD6F7A /* EventImageTableViewCell.swift in Sources */,
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,
 				AFF07D871D90CA5B00218622 /* FirstViewController.swift in Sources */,
+				AFF572691DDC11A000FD64EC /* Helpers.swift in Sources */,
 				AF0205FD1DCE275600996D20 /* FunAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
