@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0DC5A225A3DFC8E38D3A6F0D /* Pods_ccs_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3C1E84CEE2D3F8E2FBBF50 /* Pods_ccs_events.framework */; };
-		AF0205FD1DCE275600996D20 /* FunAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0205FC1DCE275600996D20 /* FunAnimations.swift */; };
 		AF30CBFC1D9CC7320090A579 /* eventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */; };
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
+		AF4001D01E01044500740266 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4001CF1E01044500740266 /* NotificationViewController.swift */; };
 		AF42CAE31DCE8C5200A4FBD3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42CAE21DCE8C5200A4FBD3 /* AVFoundation.framework */; };
 		AF42CAE51DCEFEFD00A4FBD3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42CAE41DCEFEFD00A4FBD3 /* ContactViewController.swift */; };
 		AF43984B1DCF209600511298 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43984A1DCF209600511298 /* GalleryViewController.swift */; };
@@ -37,9 +37,9 @@
 /* Begin PBXFileReference section */
 		41DF16273B6053AA30A90718 /* Pods-ccs_events.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.release.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.release.xcconfig"; sourceTree = "<group>"; };
 		8C990B584289F3D305DB937A /* Pods-ccs_events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.debug.xcconfig"; sourceTree = "<group>"; };
-		AF0205FC1DCE275600996D20 /* FunAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunAnimations.swift; sourceTree = "<group>"; };
 		AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventCellTableViewCell.swift; sourceTree = "<group>"; };
 		AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCellTableViewCell.xib; sourceTree = "<group>"; };
+		AF4001CF1E01044500740266 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ccs_events.entitlements; sourceTree = "<group>"; };
 		AF42CAE21DCE8C5200A4FBD3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AF42CAE41DCEFEFD00A4FBD3 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +103,7 @@
 			children = (
 				AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */,
 				AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */,
+				AF4001CF1E01044500740266 /* NotificationViewController.swift */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 		AFF07D831D90CA5B00218622 /* ccs_events */ = {
 			isa = PBXGroup;
 			children = (
-				AF0205FC1DCE275600996D20 /* FunAnimations.swift */,
 				AFF07D841D90CA5B00218622 /* AppDelegate.swift */,
 				AFF07D861D90CA5B00218622 /* FirstViewController.swift */,
 				AF8D5B431DC52E08002E3DAC /* Constants.swift */,
@@ -338,6 +338,7 @@
 				AFFDED0F1DA5F32D00DD18BB /* EventTextTableViewCell.swift in Sources */,
 				AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */,
 				AFF07D891D90CA5B00218622 /* EventViewController.swift in Sources */,
+				AF4001D01E01044500740266 /* NotificationViewController.swift in Sources */,
 				AF43984E1DCFB50500511298 /* GalleryCollectionViewCell.swift in Sources */,
 				AF43984B1DCF209600511298 /* GalleryViewController.swift in Sources */,
 				AF42CAE51DCEFEFD00A4FBD3 /* ContactViewController.swift in Sources */,
@@ -347,7 +348,6 @@
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,
 				AFF07D871D90CA5B00218622 /* FirstViewController.swift in Sources */,
 				AFF572691DDC11A000FD64EC /* Helpers.swift in Sources */,
-				AF0205FD1DCE275600996D20 /* FunAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
