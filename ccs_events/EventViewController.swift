@@ -39,6 +39,7 @@ class EventViewController: UIViewController {
         self.tabBarController?.tabBar.items![1].badgeValue = nil
         readAndListenForEvents(shouldSaveCount : true)
         UserDefaults.standard.set(true, forKey: "badgeUpdate")
+        UserDefaults.standard.set(false, forKey: "notificationBadgeUpdate")
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -37,6 +37,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     override func viewDidAppear(_ animated: Bool) {
         UserDefaults.standard.set(false, forKey: "badgeUpdate")
+        UserDefaults.standard.set(false, forKey: "notificationBadgeUpdate")
     }
     
     private func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
