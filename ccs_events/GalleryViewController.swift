@@ -50,10 +50,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
         cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 0.5
-        cell.frame.size.width = screenWidth / 3
-        cell.frame.size.height = screenWidth / 3
         cell.setImage(image: images[indexPath.row])
         return cell
     }
