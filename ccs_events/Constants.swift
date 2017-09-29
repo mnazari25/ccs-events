@@ -29,6 +29,11 @@ class Constants {
     static let facebookSocialWebLink = "https://www.facebook.com/CCSampedrano/"
     static let twitterSocialLink = "twitter://user?screen_name=CCSsps"
     static let twitterSocialWebLink = "https://twitter.com/CCSsps"
+    
+    // Notification
+    static let notificationTitleKey = "notificationTitle"
+    static let notificationMessageKey = "notificationMessage"
+    static let notificationDateKey = "notificationDate"
 }
 
 extension UIAlertController {
@@ -56,3 +61,4 @@ extension UIAlertController {
         return alert
     }
 }
+

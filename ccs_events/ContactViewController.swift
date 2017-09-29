@@ -22,6 +22,7 @@ class ContactViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UserDefaults.standard.set(false, forKey: "badgeUpdate")
+        UserDefaults.standard.set(false, forKey: "notificationBadgeUpdate")
     }
     
     @IBAction func socialLinkTapped(_ sender: UIButton) {

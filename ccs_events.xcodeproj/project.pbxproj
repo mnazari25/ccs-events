@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DC5A225A3DFC8E38D3A6F0D /* Pods_ccs_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3C1E84CEE2D3F8E2FBBF50 /* Pods_ccs_events.framework */; };
+		AF114CB71E1F461D00E69D1D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF114CB61E1F461D00E69D1D /* Notification.swift */; };
+		AF114CBA1E1F4CF600E69D1D /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF114CB81E1F4CF600E69D1D /* NotificationCell.swift */; };
 		AF30CBFC1D9CC7320090A579 /* eventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */; };
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
 		AF4001D01E01044500740266 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4001CF1E01044500740266 /* NotificationViewController.swift */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		41DF16273B6053AA30A90718 /* Pods-ccs_events.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.release.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.release.xcconfig"; sourceTree = "<group>"; };
 		8C990B584289F3D305DB937A /* Pods-ccs_events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.debug.xcconfig"; sourceTree = "<group>"; };
+		AF114CB61E1F461D00E69D1D /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		AF114CB81E1F4CF600E69D1D /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventCellTableViewCell.swift; sourceTree = "<group>"; };
 		AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCellTableViewCell.xib; sourceTree = "<group>"; };
 		AF4001CF1E01044500740266 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +107,9 @@
 			children = (
 				AF40AC231D9B806800C8E3E3 /* ccs_events.entitlements */,
 				AFA36BDE1D9B845300E1716B /* GoogleService-Info.plist */,
-				AF4001CF1E01044500740266 /* NotificationViewController.swift */,
+				AF114CB61E1F461D00E69D1D /* Notification.swift */,
+				AF77B6C31E1F55F1004F7087 /* Controllers */,
+				AF77B6C41E1F55FA004F7087 /* Cells */,
 			);
 			name = Notification;
 			sourceTree = "<group>";
@@ -123,6 +129,22 @@
 				AF43984D1DCFB50500511298 /* GalleryCollectionViewCell.swift */,
 			);
 			name = Gallery;
+			sourceTree = "<group>";
+		};
+		AF77B6C31E1F55F1004F7087 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF4001CF1E01044500740266 /* NotificationViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AF77B6C41E1F55FA004F7087 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AF114CB81E1F4CF600E69D1D /* NotificationCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		AF8664EC1D9F420C008C7201 /* Events */ = {
@@ -226,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Amir Nazari";
 				TargetAttributes = {
 					AFF07D801D90CA5B00218622 = {
@@ -337,6 +359,7 @@
 				AFFDED121DA5FCEC00DD18BB /* Event.swift in Sources */,
 				AFFDED0F1DA5F32D00DD18BB /* EventTextTableViewCell.swift in Sources */,
 				AFD613751D9F4F2D00DD6F7A /* EventDetailViewController.swift in Sources */,
+				AF114CB71E1F461D00E69D1D /* Notification.swift in Sources */,
 				AFF07D891D90CA5B00218622 /* EventViewController.swift in Sources */,
 				AF4001D01E01044500740266 /* NotificationViewController.swift in Sources */,
 				AF43984E1DCFB50500511298 /* GalleryCollectionViewCell.swift in Sources */,
@@ -348,6 +371,7 @@
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,
 				AFF07D871D90CA5B00218622 /* FirstViewController.swift in Sources */,
 				AFF572691DDC11A000FD64EC /* Helpers.swift in Sources */,
+				AF114CBA1E1F4CF600E69D1D /* NotificationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,16 +496,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C990B584289F3D305DB937A /* Pods-ccs_events.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ccs_events/ccs_events.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DDHCX46L99;
 				INFOPLIST_FILE = ccs_events/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -489,16 +515,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41DF16273B6053AA30A90718 /* Pods-ccs_events.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ccs_events/ccs_events.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DDHCX46L99;
 				INFOPLIST_FILE = ccs_events/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnazari.ccs-events2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
