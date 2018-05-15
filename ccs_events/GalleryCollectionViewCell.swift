@@ -11,7 +11,7 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var galleryImage: UIImageView!
     
-    func setImage(image : UIImage) {
+    func setImage(image : UIImage?) {
         galleryImage.image = image
     }
 }

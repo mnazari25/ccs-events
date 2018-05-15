@@ -10,6 +10,7 @@
 		0DC5A225A3DFC8E38D3A6F0D /* Pods_ccs_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3C1E84CEE2D3F8E2FBBF50 /* Pods_ccs_events.framework */; };
 		AF114CB71E1F461D00E69D1D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF114CB61E1F461D00E69D1D /* Notification.swift */; };
 		AF114CBA1E1F4CF600E69D1D /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF114CB81E1F4CF600E69D1D /* NotificationCell.swift */; };
+		AF153D9420A95C900054A842 /* GalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF153D9320A95C900054A842 /* GalleryItem.swift */; };
 		AF30CBFC1D9CC7320090A579 /* eventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */; };
 		AF30CBFD1D9CC7320090A579 /* eventCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */; };
 		AF4001D01E01044500740266 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4001CF1E01044500740266 /* NotificationViewController.swift */; };
@@ -41,6 +42,7 @@
 		8C990B584289F3D305DB937A /* Pods-ccs_events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ccs_events.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events.debug.xcconfig"; sourceTree = "<group>"; };
 		AF114CB61E1F461D00E69D1D /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		AF114CB81E1F4CF600E69D1D /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		AF153D9320A95C900054A842 /* GalleryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItem.swift; sourceTree = "<group>"; };
 		AF30CBFA1D9CC7320090A579 /* eventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventCellTableViewCell.swift; sourceTree = "<group>"; };
 		AF30CBFB1D9CC7320090A579 /* eventCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCellTableViewCell.xib; sourceTree = "<group>"; };
 		AF4001CF1E01044500740266 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				AF43984A1DCF209600511298 /* GalleryViewController.swift */,
 				AF43984D1DCFB50500511298 /* GalleryCollectionViewCell.swift */,
+				AF153D9320A95C900054A842 /* GalleryItem.swift */,
 			);
 			name = Gallery;
 			sourceTree = "<group>";
@@ -309,9 +312,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ccs_events/Pods-ccs_events-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/MapleBacon/MapleBacon.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapleBacon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -339,13 +355,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ccs_events-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -366,6 +385,7 @@
 				AF43984B1DCF209600511298 /* GalleryViewController.swift in Sources */,
 				AF42CAE51DCEFEFD00A4FBD3 /* ContactViewController.swift in Sources */,
 				AF8D5B441DC52E08002E3DAC /* Constants.swift in Sources */,
+				AF153D9420A95C900054A842 /* GalleryItem.swift in Sources */,
 				AFF07D851D90CA5B00218622 /* AppDelegate.swift in Sources */,
 				AFD613791D9F5D0B00DD6F7A /* EventImageTableViewCell.swift in Sources */,
 				AFD6137D1D9F5DB700DD6F7A /* EventDateTableViewCell.swift in Sources */,

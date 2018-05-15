@@ -67,8 +67,16 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.eventTitle.text = elEvent.eventName
         
-        getImageFromStorageRef(title: elEvent.eventImage, imageView: cell.eventImage)
-        
+        if elEvent.downloadImageURL == "" {
+            getImageFromStorageRef(title: elEvent.eventImage, imageView: cell.eventImage, event: elEvent)
+        } else {
+            if let downloadURL = URL(string: elEvent.downloadImageURL) {
+                cell.eventImage.setImage(withUrl: downloadURL)
+            } else {
+                getImageFromStorageRef(title: elEvent.eventImage, imageView: cell.eventImage, event: elEvent)
+            }
+        }
+                
         cell.eventDescription.text = elEvent.eventDescription
         
         let timeInterval : TimeInterval = TimeInterval(elEvent.eventDate)

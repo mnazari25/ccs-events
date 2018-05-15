@@ -57,6 +57,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
   - ImagePicker (2.0.0)
+  - MapleBacon (4.0.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - ImagePicker
+  - MapleBacon
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
@@ -86,8 +88,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
+  MapleBacon: 51238c77f0c0a2fa796bd8698d321fbd3d05c3d7
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: ebffac8432cd141c40bd6dc116932b44bed9a834
+PODFILE CHECKSUM: e6a2b5cbd9b30bd85e2a73d4399988c2438de9b6
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.4.0

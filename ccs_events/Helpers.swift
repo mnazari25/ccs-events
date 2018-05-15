@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-func getImageFromStorageRef(title: String, imageView: UIImageView) {
-    
-    imageView.image = #imageLiteral(resourceName: "events-placeholder")
+func getImageFromStorageRef(title: String, imageView: UIImageView, event: Event?) {
     
     if title == "" {
         return
@@ -21,15 +19,28 @@ func getImageFromStorageRef(title: String, imageView: UIImageView) {
     let storage = FIRStorage.storage()
     let imageRef = storage.reference(withPath: "images/\(title)")
     
-    imageRef.data(withMaxSize: 1 * 2000 * 2000) { (data, error) -> Void in
-        if (error != nil) {
-            // Uh-oh, an error occurred!
+    imageRef.downloadURL { url, error in
+        if let error = error {
+            // Handle any errors
             print("error downloading image")
-            print(error?.localizedDescription ?? "")
+            print(error.localizedDescription)
             imageView.image = #imageLiteral(resourceName: "events-placeholder")
+            return
         } else {
-            let theImage: UIImage! = UIImage(data: data!)
-            imageView.image = theImage
+            if let download = url {
+                
+                if let thisEvent = event {
+                    thisEvent.downloadImageURL = download.absoluteString
+                }
+                
+                imageView.setImage(withUrl: download)
+            }
         }
+    }
+}
+
+extension Array where Element: Comparable {
+    func containsSameElements(as other: [Element]) -> Bool {
+        return self.count == other.count && self.sorted() == other.sorted()
     }
 }

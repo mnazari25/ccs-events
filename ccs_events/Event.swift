@@ -18,6 +18,7 @@ class Event : NSObject {
     var eventTime : u_long = 0
     var eventDescription : String = ""
     var eventImage : String = ""
+    var downloadImageURL: String = ""
     var adminNotes : String = ""
     var savedEventID : String?
     

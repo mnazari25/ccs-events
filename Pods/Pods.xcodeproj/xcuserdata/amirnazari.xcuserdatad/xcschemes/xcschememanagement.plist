@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MapleBacon.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ccs_events.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -41,42 +46,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>03E6E56F8533C2E42C696D7CCAC42910</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>50E3230A6BB42957CAB2F3056E0C01A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>55BD3033702F62283C42C1F6E037342D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7C4108C3722F95AE55CEDD665AC9630D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D3B88B1A013C824136C326A0B84375C0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F38B647C5DBBAFCE7F3947812A26C3F2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
